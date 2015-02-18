@@ -1,0 +1,75 @@
+
+// Program by Mane Chakarian
+// CSCI 40 Problem 10
+#include <iostream>
+using namespace std;
+int main ()
+{
+cout << "Problem 1" <<endl;
+
+    //problem 1
+
+int i=12;
+int sum2=0;
+  while (i<=111){
+    sum2=sum2+i*i;
+    i=i+2;
+  }
+cout <<"Sum of squares of all even numbers 11-111: " <<sum2<<endl;
+cout << endl;
+cout << endl;
+    
+cout << "Problem 2" <<endl;
+    
+    //problem 2
+    
+    int b;
+    b = 10;
+    while (b<=52){
+        cout << 5*b << " ";
+        b++;
+        if ((b+2)%6==0){cout<<endl;}
+    }
+    cout << endl;
+    cout << endl;
+    cout << "Problem 3" <<endl;
+
+// problem 3
+
+int a=50;
+int square=0;
+while (a>=1){
+square=a*a;
+a--;
+cout << square << " ";
+    if (a%10==0){cout<<endl;}
+    }
+    cout << endl;
+    cout << endl;
+    cout << "Problem 4" <<endl;
+
+    // problem 4
+
+int score, max, min, sum, x=1;
+int count;
+cout <<"How many scores do you want to enter?" <<endl;
+cin >> count;
+cout <<"Please enter a score"<<endl;
+cin >> score;
+max = score;
+min = score;
+sum = score;
+  while (x<count){
+    cout <<"Enter another score"<<endl;
+    cin >> score;
+    if (score>max){max=score;}
+    if (score<min){min=score;}
+    sum=sum+score;
+    x++;
+  }
+cout <<"The max number is: "<<max<<endl;
+cout <<"The min number is: "<<min<<endl;
+cout <<"The sum is: "<<sum<<endl;
+cout <<"The average is: "<<sum/count<<endl;
+return 0;
+}
