@@ -2,10 +2,11 @@
 using namespace std;
 int main ()
 {
-	int m, g, avg, average;
-	double mg;
+	int avg, average;
+	double mg, m, g;
 	int count;
 	g = 0;
+	count = 0;
 	while (g != -1){
 		cout << "Enter the gallons used (-1 to end): "<<endl;
 		cin >> g;
