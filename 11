@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main ()
+{
+	int m, g, avg, average;
+	double mg;
+	int count;
+	g = 0;
+	while (g != -1){
+		cout << "Enter the gallons used (-1 to end): "<<endl;
+		cin >> g;
+		if (g == -1) break;
+		cout << "Enter the miles driven: "<<endl;
+		cin >> m;
+		mg = m/g;
+		cout << "The miles/gallon for this tank was: "<< mg <<endl;
+		avg = 0 + mg;
+		count ++;
+	}
+	average = avg/count;
+	cout << "The overall average miles/gallon was: "<< average <<endl;
+	return 0;
+}
