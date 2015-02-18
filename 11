@@ -2,8 +2,7 @@
 using namespace std;
 int main ()
 {
-	int avg, average;
-	double mg, m, g;
+	double mg, m, g, average, avg;
 	int count;
 	g = 0;
 	count = 0;
