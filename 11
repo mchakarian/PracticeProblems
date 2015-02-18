@@ -1,23 +1,55 @@
+
 #include <iostream>
 using namespace std;
 int main ()
 {
-	double mg, m, g, average, avg;
-	int count;
-	g = 0;
-	count = 0;
-	while (g != -1){
-		cout << "Enter the gallons used (-1 to end): "<<endl;
-		cin >> g;
-		if (g == -1) break;
-		cout << "Enter the miles driven: "<<endl;
-		cin >> m;
-		mg = m/g;
-		cout << "The miles/gallon for this tank was: "<< mg <<endl;
-		avg = 0 + mg;
-		count ++;
+    double mg, m, g, average, avg;
+    int count;
+    g = 0;
+    count = 0;
+	avg = 0;
+    while (g != -1){
+        cout << "Enter the gallons used (-1 to end): "<<endl;
+        cin >> g;
+        if (g == -1) break;
+        cout << "Enter the miles driven: "<<endl;
+        cin >> m;
+        mg = m/g;
+        cout << "The miles/gallon for this tank was: "<< mg <<endl;
+        avg = avg + mg;
+        count ++;
+    }
+    average = avg/count;
+    cout << "The overall average miles/gallon was: "<< average <<endl;
+	cout << endl;
+	
+	// Program 2
+	double begin, charges, credit, credLIM, balance;
+	int acct = 0;
+	while (acct != -1){
+		cout <<"Enter account number (-1 to end): "<<endl;
+		cin >> acct;
+		if (acct == -1) break;
+		cout <<"Enter beginning balance: "<<endl;
+		cin >> begin;
+		cout <<"Enter total charges: "<<endl;
+		cin >> charges;
+		cout <<"Enter total credit: "<<endl;
+		cin >> credit;
+		cout <<"Enter credit limit: "<<endl;
+		cin >> credLIM;
+		balance = begin + charges - credit;
+		cout << "Balance: "<< balance <<endl;
+		if (balance > credLIM){
+			cout <<"Accout: "<< acct <<endl;
+			cout <<"Credit Limit: "<< credLIM <<endl;
+			cout <<"Credit Limit Exceeded."<<endl;
+		}
+		cout <<endl;
 	}
-	average = avg/count;
-	cout << "The overall average miles/gallon was: "<< average <<endl;
+	cout <<"Thank you."<<endl;
 	return 0;
 }
+
+
+
