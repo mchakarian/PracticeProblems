@@ -1,0 +1,51 @@
+//PROGRAM BY MANE CHAKARIAN
+// CSCI 40 TEST 2
+#include <iostream>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+int main ()
+{
+//PROBLEM 1
+	
+	int A, B;
+	cout << "Enter two positive integer numbers. Please enter the smallest number first." <<endl;
+	cin >> A >> B;
+	int i=A;
+	int square=0;
+	  while (i<=B){
+	    square=i*i;
+	    cout << square <<endl;
+		i=i+1;
+	  }
+	cout << endl;
+	cout << endl;
+    
+//PROBLEM 2
+	
+	int x;
+	x=5;
+	while(x<=55){
+		cout << x <<" ";
+		x=x+5;
+	}
+	cout << endl;
+	cout << endl;
+
+//PROBLEM 3
+
+	int u=1;
+	int r;
+	double sum, avg;
+	srand(time(0));
+	sum=0;
+	while (u<=20){
+		r = rand() % 100;
+		cout << r <<endl;
+		sum=sum+r;
+		u++;
+	}
+	avg = sum/20;
+	cout << "Average of 20 randomly generated integers: " << avg <<endl;
+	return 0;
+}
