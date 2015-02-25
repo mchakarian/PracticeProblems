@@ -1,0 +1,65 @@
+//Program by Mane Chakarian
+//CSCI 40 Assignment 14
+
+#include <iostream>
+using namespace std;
+double sum(double n);
+int gcf(int a, int b, int c);
+void rightTriangle (int base);
+int main ()
+{
+	double n, x;
+	cout <<"Enter a number"<<endl;
+	cin >> n;
+	x = sum(n);
+	cout <<"The sum of all "<<n<<" numbers is: "<<x<<endl;
+	cout<<endl;
+	cout<<endl;
+
+	int a, b, c;
+	cout <<"Enter three integers" <<endl;
+	cin >> a >> b >> c;
+	int z = gcf(a, b, c);
+	cout << "The greatest common factor is: "<<z<<endl;
+	cout <<endl;
+	cout <<endl;
+
+	int base;
+	cout <<"Enter the value of the base of a triangle"<<endl;
+	cin >> base;
+	rightTriangle (base);
+	cout <<endl;
+
+	return 0;
+}
+
+	double sum(double n)
+	{
+		int total = 0;
+		for (int i=1; i<=n; i++)
+		{
+			total += i;
+		}
+		return total;
+	}
+
+	int gcf(int a, int b, int c)
+	{
+		int gcf = 1;
+		for(int i = 1; i<=a && i<=b && i<= c; i++){
+		    if(a%i == 0 && b%i == 0 && c%i == 0){
+				gcf = i;
+		    }
+		}
+		return gcf;
+	}
+
+	void rightTriangle (int base)
+	{
+		for (int i=base; i>0; i--){
+			for (int j=1; j<=i; j++)
+				cout <<"* ";
+			cout <<endl;
+		}
+	}
+
