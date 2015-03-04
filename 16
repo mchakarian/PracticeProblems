@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+bool isPrime(int a);
+int largestPrime(int b);
+int main ()
+{
+	int number, number2, answer;
+	cout <<"Please enter a number."<<endl;
+	cin >> number;
+	isPrime(number);
+
+	if (isPrime(number) == true){
+		cout << "It's Prime." <<endl;
+	}
+	else{
+		cout << "It's not Prime."<<endl;
+	}
+	cout <<endl;
+	cout <<endl;
+	cout <<"Please enter another number."<<endl;
+	cin >>number2;
+	answer = largestPrime(number2);
+	cout << "The largest prime number before your entered number is: "<<answer<<endl;
+
+	return 0;
+}
+
+bool isPrime(int a)
+{
+	int flag = 0;
+	for (int i=2; i<a; i++){
+		if(a%i == 0 && a != 2){
+			flag = 1;
+			return false;
+		}
+	}
+		if (flag == 0){
+			return true;
+		}
+
+}
+
+int largestPrime(int b)
+{
+	int flag = 0;
+	for (int i=b; i>2; i--){
+		for (int j=2; j<2; j++){
+			if (i%j == 0){
+				flag ++;
+			}
+		}
+		if (flag == 0)
+		{
+			return i;
+			break;
+		}
+		flag = 0;
+	}
+	return 0;
+}
