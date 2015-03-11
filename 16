@@ -40,21 +40,13 @@ bool isPrime(int a)
 
 }
 
-int largestPrime(int b)
+int largestPrime(int m)
 {
-	int flag = 0;
-	for (int i=b; i>2; i--){
-		for (int j=2; j<2; j++){
-			if (i%j == 0){
-				flag ++;
-			}
-		}
-		if (flag == 0)
-		{
+	for(int i=m; i>0; i--){
+		if (isPrime(i)){
 			return i;
-			break;
 		}
-		flag = 0;
 	}
+
 	return 0;
 }
