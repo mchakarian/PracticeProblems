@@ -2,8 +2,10 @@
 using namespace std;
 int main ()
 {
+/*
 int a[12];
 int i=0;
+int sum=0;
 cout << "Please enter the test scores: "<<endl;
 for (i=0;i<12;i++)
     cin >> a[i];
@@ -13,10 +15,42 @@ for (i=0;i<12;i++){
         max = a[i];
 }
 cout << "The highest score is: "<<max<<endl;
-
+cout << endl;
 for (i=0;i<12;i++){
 	a[i] = double(a[i])/double(max)*100;
-	cout << a[i] <<" "<<endl;
+	cout << a[i] <<" ";
 }
+
+for (i=0;i<12;i++){
+	sum+=a[i];
+}
+sum = sum/12;
+cout << endl;
+cout << "The average score is: "<<sum<<endl;
+cout << endl;
+cout << "The differences between new scores and avg of new scores:"<<endl;
+for (i=0;i<12;i++){
+	a[i] = double(a[i]) - sum;
+	cout << a[i] <<" ";
+}
+//____________________________________________________________________
+
+int b[6];
+int i=0;
+
+cout << "Please enter 6 positive integers"<<endl;
+for (i=0;i<6;i++)
+	cin >> b[i];
+for (i=0;i<6;i++){
+	cout << b[i]<<"  ";
+	for (int k=0;k<b[i];k++)
+		cout <<"* ";
+	cout<<endl;
+}
+
 return 0;
 }
+//_____________________________________________________________________
+*/
+	int i = 0;
+	int c[i];
