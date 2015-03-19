@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
+int calculate (int c[], int length);   // function declares array
 int main ()
 {
-/*
 int a[12];
 int i=0;
 int sum=0;
@@ -36,8 +36,8 @@ for (i=0;i<12;i++){
 //____________________________________________________________________
 
 int b[6];
-int i=0;
-
+cout <<endl;
+cout << "PROBLEM II:" <<endl;
 cout << "Please enter 6 positive integers"<<endl;
 for (i=0;i<6;i++)
 	cin >> b[i];
@@ -47,10 +47,20 @@ for (i=0;i<6;i++){
 		cout <<"* ";
 	cout<<endl;
 }
-
-return 0;
-}
 //_____________________________________________________________________
-*/
-	int i = 0;
-	int c[i];
+
+
+int c[5] = {2, 5, 7, 12, 3};
+cout <<endl;
+cout <<"PROBLEM III:"<<endl;
+cout <<"The sum is: "<<calculate(c,5)<<endl;
+	return 0;
+}
+
+int calculate(int c[], int length)
+{
+	int s=0;
+	for(int i=0;i<length;i++)
+		s+=c[i];
+	return s;
+}
