@@ -1,0 +1,55 @@
+//
+//  main.cpp
+//  assignment17
+//
+//  Created by Mane Chakarian on 3/22/15.
+//  Copyright (c) 2015 mchakarian. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+void sortDescending (int a[], int length);   // function declares array
+void shiftRight (int b[], int length);
+void insert(int c[], int length, int intNUM);
+int main ()
+{
+    int a[5] = {2, 5, 7, 12, 8};
+    sortDescending(a,5);
+    for(int k=0;k<5;k++)
+        cout<<a[k]<<" ";
+    cout<<endl;
+    int b[5] = {12, 23, 33, 21, 18};
+    shiftRight(b,5);
+    for(int k=0;k<5;k++)
+        cout<<b[k]<<" ";
+    cout<<endl;
+    cout<<endl;
+    int c[5] = {2, 4, 6, 8, 10};
+    insert(c, 5, 2);
+    for(int k=0;k<5;k++)
+        cout<<c[k];
+    
+    return 0;
+}
+void sortDescending (int a[], int length)
+{
+int n;
+for (int j=4;j>0;j--){
+    for (int i=0;i<j;i++){
+        if (a[i]<a[i+1]){
+            n=a[i];
+            a[i]=a[i+1];
+            a[i+1]=n;
+        }
+    }
+}
+}
+void shiftRight (int b[], int length)
+{
+    for (int i=length;i>=0;i--)
+        b[i]=b[i-1];
+}
+void insert (int c[], int length, int intNUM)
+{
+    cout<<"HI";
+}
