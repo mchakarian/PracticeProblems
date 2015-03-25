@@ -1,0 +1,27 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+int experiment(int heads);
+int main()
+{
+	srand (time(0));
+	int times;
+	cout << "How many times would you like to conduct the experiment?"<<endl;
+	cin >> times;
+	cout << experiment(times);
+	
+	return 0;
+}
+
+int experiment(int heads)
+{
+	int c;
+	heads = 0;
+	for (int i=0;i<12;i++){
+		c=rand()%2;
+		if(c == 1)
+			heads++;
+		cout << "* ";
+	}
+	return heads;
+}
