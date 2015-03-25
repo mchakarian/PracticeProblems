@@ -1,0 +1,60 @@
+//
+//  main.cpp
+//  Assignment 21
+//
+//  Created by Mane Chakarian on 3/24/15.
+//  Copyright (c) 2015 mchakarian. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+void oneCharacter(char a[]);
+void reverseOrder(char a[]);
+int count(char a[], char letter);
+void upper(char a[]);
+int main()
+{
+    char a[100];
+    char letter;
+    cout <<"Please enter a string of characters."<<endl;
+    cin.getline(a, 100, '\n');
+    oneCharacter(a);
+    cout <<endl;
+    reverseOrder(a);
+    cout <<endl;
+    cout <<"Please enter another character to search for in your string."<<endl;
+    cin >> letter;
+    cout << "The number of times " <<letter<< " occurs in your string is: ";
+    cout << count(a, letter) <<endl;
+    upper(a);
+    
+    
+    return 0;
+}
+void oneCharacter(char a[])
+{
+    for(int i=0;i<=strlen(a)-1;i++)
+        cout << a[i] << endl;
+}
+void reverseOrder(char a[])
+{
+    for(int i=strlen(a)-1;i>=0;i--)
+        cout << a[i];
+}
+int count(char a[], char letter)
+{
+    int key=0;
+    for(int i=0;i<=strlen(a)-1;i++)
+        if (a[i] == letter)
+            key++;
+    return key;
+}
+void upper(char a[])
+{
+    a[0] = toupper(a[0]);
+    for(int i=0;i<=strlen(a)-2;i++)
+        if(a[i] == ' '){
+            a[i+1] = toupper(a[i+1]);
+        }
+    cout << a <<endl;
+}
