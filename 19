@@ -49,7 +49,7 @@ bool containsBlank(char b[])
 }
 int index(int c[], int length, int key)
 {
-    for (int i=0;i<length-1,i++){
+    for (int i=0;i<length-1;i++){
         if (c[i] == key)
             return i;
     }
