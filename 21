@@ -12,6 +12,7 @@ void oneCharacter(char a[]);
 void reverseOrder(char a[]);
 int count(char a[], char letter);
 void upper(char a[]);
+void deleteBlank(char a[]);
 int main()
 {
     char a[100];
@@ -27,6 +28,8 @@ int main()
     cout << "The number of times " <<letter<< " occurs in your string is: ";
     cout << count(a, letter) <<endl;
     upper(a);
+    cout << endl;
+    cout << deleteBlank(a) <<endl;
     
     
     return 0;
@@ -57,4 +60,11 @@ void upper(char a[])
             a[i+1] = toupper(a[i+1]);
         }
     cout << a <<endl;
+}
+void deleteBlank(char a[])
+{
+    for(int i=0;i<=strlen(a)-1;i++)
+        if(a[i] == ' '){
+            a[i] = a[i-1];
+        }
 }
