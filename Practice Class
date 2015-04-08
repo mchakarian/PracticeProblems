@@ -1,0 +1,127 @@
+// SOURCE FILE
+#include <iostream>
+#include "bag.h"
+using namespace std;
+
+int main()
+{
+	Bag myBag;
+	for(int i=0;i<10;i++)
+		if(!myBag.add(rand()%100))					//returns a false value if bag is full; so turns into a true statement
+			cout << "The bag is full!" <<endl;
+	myBag.display();
+	if(!myBag.remove(64))
+		cout << "Can't be removed" <<endl;
+	myBag.display();
+	return 0;
+}
+
+
+// HEADER FILE
+// header file for the class bag
+
+#include <iostream>
+using namespace std;
+#ifndef _Bag
+#define _Bag
+
+
+class Bag
+{
+private:
+	int items[100];
+	int size;
+public:
+	Bag();
+	void setSize(int s);
+	int getSize();
+	bool isEmpty();
+	void clear();
+	bool add(int newItem);
+	bool contains(int anItem);
+	bool remove(int anItem);
+	int getfrequencyof(int anItem);
+	void display();
+};
+
+Bag::Bag()
+{
+	size=0;
+}
+
+void Bag::setSize(int s)
+{
+	size = s;
+}
+
+int Bag::getSize()
+{
+	return size;
+}
+
+bool Bag::isEmpty()
+{
+	if(size == 0)
+		return true;
+	else
+		return false;
+}
+
+void Bag::clear()
+{
+	size=0;
+}
+
+bool Bag::add(int newItem)
+{
+	if(size==100)
+		return false;
+	else{
+		items[size++] = newItem;
+		return true;
+	}
+}
+
+bool Bag::contains(int anItem)
+{
+	for(int i=0;i<size;i++){
+		if(items[i] == anItem)
+			return true;
+	}
+	return false;
+}
+
+bool Bag::remove(int anItem)
+{
+	if(!contains(anItem))							//if bag contains, will be true; but if not contains then returns false
+		return false;
+	else{
+		int index;
+		for(int i=0;i<size;i++){
+			if(items[i]==anItem){
+				index=i;
+				for(int j=index;j<size-1;j++)
+					items[j]=items[j+1];
+				break;
+			}
+		}
+		size--;
+		return true;
+	}
+}
+
+int Bag::getfrequencyof(int anItem)
+{
+	int counter=0;
+	for(int i=0;i<size;i++)
+		if(items[i]==anItem)
+			counter++;
+	return counter;
+}
+
+void Bag::display()
+{
+	for(int i=0;i<size;i++)
+		cout << items[i] <<endl;
+}
+#endif
