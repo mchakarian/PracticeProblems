@@ -1,0 +1,59 @@
+//This is the header file for the class Node
+#ifndef _Node
+#define _Node
+
+
+class Node
+{
+private:											//will be data for storage and pointer for connection portion
+	int item;
+	Node *next;										//pointer holds address of each node, not next int or char
+public:
+	Node();											//default constructor
+	Node(const int &anItem);						//nondefault constructor
+	Node(const int &anItem, Node *nextPtr);
+	//-------------------------------------
+	void setItem(const int &anItem);				//function that sets data item
+	void setNext(Node *nextPtr);						//function that sets pointer
+	int getItem() const;							//function that gets data item (constant)
+	Node *getNext() const;							//function that gets pointer (constant)
+};
+
+Node::Node()										
+{
+	next = NULL;									//if declare instance w/no initial value, will declare null
+}
+
+Node::Node(const int &anItem)						
+{
+	item = anItem;
+	next = NULL;
+}
+
+Node::Node(const int &anItem, Node *nextPtr)
+{
+	item = anItem;
+	next = nextPtr;
+}
+
+void Node::setItem(const int &anItem)				//set function
+{
+	item = anItem;
+}
+
+void Node::setNext(Node *nextPtr)
+{
+	next = nextPtr;
+}
+
+int Node::getItem() const
+{
+	return item;
+}
+
+Node *Node::getNext() const 
+{
+	return next;
+}
+
+#endif
