@@ -1,0 +1,118 @@
+//THIS IS THE HEADER
+
+//
+//  Node.h
+//  Assignment 28
+//
+//  Created by Mane Chakarian on 4/27/15.
+//  Copyright (c) 2015 Mane Chakarian. All rights reserved.
+//
+
+#ifndef Assignment_28_Node_h
+#define Assignment_28_Node_h
+
+//#ifndef _Node
+//#define _Node
+
+template <class ItemType>
+class Node
+{
+private:
+    ItemType item;
+    Node<ItemType> *next;
+public:
+    Node();
+    Node(const ItemType &anItem);
+    Node(const ItemType &anItem, Node *nextPtr);
+    //--------------------
+    void setItem(const ItemType &anItem);
+    void setNext(Node<ItemType> *nextPtr);
+    int getItem() const;
+    Node<ItemType> *getNext() const;
+};
+
+template <class ItemType>
+Node<ItemType>::Node()
+{
+    next=NULL;
+}
+
+template <class ItemType>
+Node<ItemType>::Node(const ItemType &anItem)
+{
+    item=anItem;
+    next=NULL;
+}
+
+template <class ItemType>
+Node<ItemType>::Node(const ItemType &anItem,Node *nextPtr)
+{
+    item=anItem;
+    next=nextPtr;
+}
+
+template <class ItemType>
+void Node<ItemType>::setItem(const ItemType &anItem)
+{
+    item=anItem;
+}
+
+template <class ItemType>
+void Node<ItemType>::setNext(Node *nextPtr)
+{
+    next=nextPtr;
+}
+
+template <class ItemType>
+int Node<ItemType>::getItem() const
+{
+    return item;
+}
+
+template <class ItemType>
+Node<ItemType> *Node<ItemType>::getNext() const
+{
+    return next;
+}
+
+#endif
+
+
+//THIS IS THE MAIN FILE
+
+//
+//  main.cpp
+//  Assignment 28
+
+
+#include <iostream>
+#include "Node.h"
+using namespace std;
+
+int main()
+{
+    Node<int> *newNode;//for creating a new node for the list
+    Node<int> *head=NULL;//for holding the address of the first node of the list
+    
+    newNode=new Node<int>(5); //we are creating a new node with integer 5 stored in it.
+    head=newNode;
+    
+    //so far, we have created a linked list with one node in it
+    //Now we creat the second node and attach it to the list
+    
+    newNode=new Node<int>(20,head);
+    head=newNode;
+    
+    //Now let us use a looping statement to create a linked list
+    int numberOfNode;
+    int newItem;
+    cout << "How many nodes in the list: ";
+    cin >> numberOfNode;
+    for(int i=0;i<numberOfNode;i++){
+        cout << "Please enter a new data: ";
+        cin >> newItem;
+        newNode = new Node<int>(newItem,head);
+        head = newNode;
+    }
+    return 0;
+}
