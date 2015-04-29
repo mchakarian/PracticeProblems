@@ -1,0 +1,55 @@
+//Program by Mane Chakarian
+//CSCI Test 4
+#include <iostream>
+using namespace std;
+void printTriangle(int val);
+int reverse(int a);
+
+int main()
+{
+int val, num;
+
+cout << "Enter the number for the triangle: ";
+cin >> val;
+printTriangle(val);
+
+cout << "Now enter a positive integer to reverse." <<endl;
+cin >> num;
+cout << reverse(num);
+
+return 0;
+}
+
+
+void printTriangle(int val)
+{
+
+	int t = val;
+	int x = val;
+	for(int r = 1; r <= val; r++)
+	{
+		for(int c  = 1; c <=t ; c++)
+		{
+		if(c < x){
+			cout << ' ';
+		}
+		else{
+			cout << "* ";
+		}
+	}    
+	cout <<endl;
+	x = x-1;
+	}
+}
+
+
+int reverse(int a)
+{
+	int revnum = 0;
+	while(a!= 0)
+{
+	revnum = revnum*10 + a%10;
+	a = a/10;
+}
+	return revnum;
+}
