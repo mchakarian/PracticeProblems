@@ -1,0 +1,132 @@
+//Program (c) by Mane Chakarian
+//CSCI 40 Assignment 28
+#include<iostream>
+#include"Node.h"
+using namespace std;
+ 
+Node *createLinkedList(int numberOfNodes);
+int sum(Node *list);
+int max(Node *list);
+int length(Node *list);
+Node *add(Node *list, int anItem);
+Node *remove(Node *list);
+
+void displayLinkedList(Node *list);
+
+ 
+int main()
+{
+	Node *head = NULL;
+    int numberOfNode;
+    cout << "How many nodes do you want in the list: ";
+    cin >> numberOfNode;
+    head = createLinkedList(numberOfNode);
+
+    cout << "The sum of the numbers stored in the list is: "<<sum(head)<<endl;
+    cout << "The largest number stored in the list: "<<max(head)<<endl;
+    cout << "This is the number of nodes in the list: " << length(head) <<endl;
+
+	int anItem;
+	cout << "What item do you want to add: ";
+	cin >> anItem;
+	head = add(head, anItem);
+    displayLinkedList(head);
+	cout << endl;
+	head = remove(head);
+	cout << endl;
+	cout << "This is your list with the first data item removed." <<endl;
+	displayLinkedList(head);
+
+	return 0;
+}
+
+Node *createLinkedList(int numberOfNodes)
+{
+    Node *head = NULL;
+    Node *newNode;
+    int newItem;
+    for(int i = 0; i < numberOfNodes; i++){
+        cout << "Please enter a new data: ";
+        cin >> newItem;
+        newNode = new Node(newItem, head);
+        head = newNode;
+    }
+    return head;
+}
+
+int sum(Node *list)
+{
+    Node *curNode = list;
+    int sum = 0;
+    if(curNode == NULL)
+        cout << "It is an empty list!\n";
+    else{
+        sum += curNode -> getItem();
+    }
+    while(curNode -> getNext() != NULL){
+        curNode = curNode -> getNext();
+        sum += curNode -> getItem();
+    }
+    return sum;
+}
+
+int max(Node *list)
+{
+    Node *curNode = list;
+    int max = 0;
+    if(curNode == NULL)
+    cout << "It is an empty list!\n";
+    else{
+        max = curNode -> getItem();
+    }
+    while(curNode -> getNext() != NULL){
+        curNode = curNode -> getNext();
+        if(max < curNode -> getItem())
+            max = curNode -> getItem();
+    }
+    return max;
+}
+
+int length(Node *list)
+{
+    Node *currNode = list;
+    int flag = 0;
+    if(currNode == NULL)
+        cout << "It is an empty list!\n";
+    else{
+        currNode -> getItem();
+        flag++;
+    }
+    while(currNode -> getNext() != NULL){
+        currNode = currNode -> getNext();
+        currNode -> getItem();
+        flag++;
+    }
+    return flag;
+}
+Node *add(Node *list, int anItem)
+{
+	Node *newNode = new Node(anItem, list);
+	return newNode;
+}
+Node *remove(Node *list)
+{
+        Node *crtPtr;
+        crtPtr = list -> getNext();
+        list -> setNext(NULL);
+        delete list;
+        return crtPtr;
+}
+void displayLinkedList(Node *list)
+{
+    Node *curNode = list;
+    if(curNode == NULL)
+        cout << "It is an empty list!\n";
+    else
+        cout << curNode -> getItem() <<endl;
+    while(curNode -> getNext() != NULL){
+        curNode = curNode -> getNext();
+        cout << curNode -> getItem() <<endl;
+    }
+}
+
