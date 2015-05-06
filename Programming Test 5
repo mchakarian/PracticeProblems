@@ -1,0 +1,76 @@
+//Program by Mane Chakarian (c)
+//CSCI Programming Test 5
+#include <iostream>
+#include <string>
+using namespace std;
+void deleteFirst(char str[]);
+void moveLargestToEnd(int a[], int length);
+int largest(int a[], int length);
+int negatives(int a[], int length);
+
+int main()
+{
+	char str[100];
+	cout << "Please enter a string." <<endl;
+	cin.getline(str, 100, '\n');
+	deleteFirst(str);
+	//---------------------
+	int a[5] = {2,7,3,4,1};
+	moveLargestToEnd(a, 5);
+	//---------------------
+	int b[5] = {2,7,3,4,1};
+	cout << largest(b, 5);
+	//---------------------
+	int c[5] = {2,-7,3,-4,1};
+	cout << negatives(c, 5);
+
+	return 0;
+}
+
+void deleteFirst(char str[])
+{
+	for(int i=0;i<=strlen(str)-1;i++){
+		str[i] = str[i+1];
+		cout << str[i];
+	}
+	cout <<endl;
+}
+
+
+void moveLargestToEnd(int a[], int length)
+{
+	int max = a[0];
+	int last = a[4];
+	for(int i=0;i<5;i++)
+		if (a[i]>max)
+			max = a[i];
+	a[4] = max;
+	for(int i=0;i<5;i++){
+		if (a[i] == max){
+			a[i] = last;
+			break;
+		}
+	}
+	for(int i=0;i<5;i++)
+		cout << a[i];
+	cout <<endl;
+}
+
+int largest(int a[], int length)
+{
+	if(length == 1)
+		return a[0];
+	length--;
+	return largest(a+ (a[0]<a[length]), length);
+	cout <<endl;
+}
+
+int negatives(int a[], int length)
+{
+	if(length == 1)
+		return a[0];
+	int sum = negatives(a, length);
+	if(a[length] < 0)
+		sum++;
+	return sum;
+}
